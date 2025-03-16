@@ -1,0 +1,27 @@
+{
+  "name": "automation-demo-parabank",
+  "version": "1.0.0",
+  "description": "Automation Demo Project of ParaBank Application - Cypress",
+  "main": "index.js",
+  "scripts": {
+    "test:report": "cypress run && npx mochawesome-report-generator cypress/reports"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pamelaialmeida/automation-demo-parabank.git"
+  },
+  "author": "Pâmela Inacio Almeida",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pamelaialmeida/automation-demo-parabank/issues"
+  },
+  "homepage": "https://github.com/pamelaialmeida/automation-demo-parabank#readme",
+  "devDependencies": {
+    "@faker-js/faker": "^9.6.0",
+    "cypress": "^14.2.0",
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^5.0.0",
+    "mochawesome-report-generator": "^6.2.0"
+  }
+}

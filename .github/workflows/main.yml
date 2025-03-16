@@ -1,0 +1,33 @@
+name: ParaBank Testing with Cypress
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22.14.0
+
+      - name: Running tests with Cypress
+        uses: cypress-io/github-action@v6
+        continue-on-error: true
+        with:
+          install-command: npm install
+          command: npm run test:report
+          browser: chrome
+      
+      - name: Publishing the report
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./mochawesome-report
